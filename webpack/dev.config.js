@@ -25,7 +25,8 @@ module.exports = {
 
   module: {
     rules: [
-      common.jsLoader
+      common.jsLoader,
+      common.stylusLoader
     ]
   }
 }

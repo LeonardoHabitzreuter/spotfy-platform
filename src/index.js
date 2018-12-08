@@ -1,9 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { hot } from 'react-hot-loader'
 
-import Root from './root'
+import App from './app'
+
+const RenderApp = hot(module)(() => <App />)
 
 render(
-  <Root />,
+  <RenderApp />,
   document.querySelector('[data-js="app"]')
 )

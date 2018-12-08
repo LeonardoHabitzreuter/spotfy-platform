@@ -29,5 +29,28 @@ module.exports = {
     use: [{
       loader: 'babel-loader'
     }]
+  },
+
+  stylusLoader: {
+    test: /\.styl$/,
+    exclude: paths.modules,
+    include: paths.src,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          sourceMap: true,
+          localIdentName: '[name]--[local]--[hash:base64:8]'
+        }
+      },
+      {
+        loader: 'stylus-loader',
+        options: {
+          preferPathResolver: 'webpack'
+        }
+      }
+    ]
   }
 }

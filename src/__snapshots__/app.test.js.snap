@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`alert component should render correctly 1`] = `
+<h1
+  className="blue"
+>
+  See all your favorite artists, albums and songs
+</h1>
+`;
