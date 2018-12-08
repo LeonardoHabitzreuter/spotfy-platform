@@ -19,7 +19,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'React boilerplate',
+    title: 'Spotfy platform',
     template: join(paths.root, 'public', 'index.html')
   },
 
