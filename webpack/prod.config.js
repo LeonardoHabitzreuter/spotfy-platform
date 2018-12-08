@@ -16,7 +16,7 @@ module.exports = {
 
     new HtmlPlugin(Object.assign({}, common.htmlPluginConfig, {
       minify: { collapseWhitespace: true }
-    })),
+    }))
   ],
 
   module: {

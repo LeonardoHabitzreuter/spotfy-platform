@@ -5,5 +5,5 @@ import Root from './root'
 
 render(
   <Root />,
-  document.querySelector('[data-js="app"]'
-))
+  document.querySelector('[data-js="app"]')
+)
