@@ -1,9 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`alert component should render correctly 1`] = `
-<h1
-  className="blue"
->
-  See all your favorite artists, albums and songs
-</h1>
+<BrowserRouter>
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      path="/artists"
+      render={[Function]}
+    />
+    <Route
+      path="/albums"
+      render={[Function]}
+    />
+    <Route
+      path="/tracks"
+      render={[Function]}
+    />
+  </Switch>
+</BrowserRouter>
 `;

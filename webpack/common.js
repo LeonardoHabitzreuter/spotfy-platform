@@ -31,6 +31,15 @@ module.exports = {
     }]
   },
 
+  cssLoader: {
+    exclude: '/node_modules/',
+    test: /\.css$/,
+    use: [
+      'style-loader',
+      'css-loader'
+    ]
+  },
+
   stylusLoader: {
     test: /\.styl$/,
     exclude: paths.modules,

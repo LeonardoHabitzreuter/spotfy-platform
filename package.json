@@ -7,7 +7,8 @@
     "start": "node server.js",
     "build": "webpack --progress --config webpack/prod.config -p",
     "lint": "standard --parser babel-eslint",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Leonardo Habitzreuter",
   "license": "MIT",
@@ -30,6 +31,8 @@
   },
   "dependencies": {
     "@babel/runtime": "7.0.0",
+    "antd": "3.11.0",
+    "classnames": "^2.2.6",
     "prop-types": "15.6.2",
     "react": "16.5.0",
     "react-dom": "16.5.0",
