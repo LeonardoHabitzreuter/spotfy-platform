@@ -61,5 +61,11 @@ module.exports = {
         }
       }
     ]
+  },
+
+  resolve: {
+    alias: {
+      components: join(paths.src, 'components')
+    }
   }
 }

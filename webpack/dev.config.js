@@ -29,5 +29,7 @@ module.exports = {
       common.stylusLoader,
       common.cssLoader
     ]
-  }
+  },
+
+  resolve: common.resolve
 }

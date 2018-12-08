@@ -49,13 +49,15 @@ export default class Layout extends Component {
         <AntLayout>
           <Content className='mx-3'>
             <Breadcrumb className='my-3'>{
-              <Breadcrumb.Item>{
-                breadcrumbsByURL
-                  .find(element => element.url === window.location.pathname)
-                  .breadcrumb
-              }</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <p className={styles.breadcrumbSize}>
+                  {breadcrumbsByURL
+                    .find(element => element.url === window.location.pathname)
+                    .breadcrumb}
+                </p>
+              </Breadcrumb.Item>
             }</Breadcrumb>
-            <div className='bg-white p-4' style={{ overflow: 'auto' }}>
+            <div className='bg-white p-4' style={{ minHeight: '85vh' }}>
               {this.props.children}
             </div>
           </Content>

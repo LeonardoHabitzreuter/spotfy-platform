@@ -8,10 +8,10 @@ new WebpackDevServer(webpack(config), {
   historyApiFallback: true,
   overlay: true,
   stats: { colors: true }
-}).listen(3002, (err) => {
+}).listen(3003, (err) => {
   if (err) {
     return console.log(err)
   }
 
-  console.log('Running at http://localhost:3002')
+  console.log('Running at http://localhost:3003')
 })
