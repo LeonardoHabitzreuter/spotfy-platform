@@ -37,3 +37,17 @@ npm test
 ```
 npm run build
 ```
+
+## Tools and libraries
+ - [React 16](https://reactjs.org/)
+ - [Bootstrapp 4](https://getbootstrap.com/docs/4.0)
+ - [Spotify API](https://developer.spotify.com/documentation/web-api/)
+ - [Ant design](https://ant.design/)
+ - [Fontawesome](https://fontawesome.com)
+ - [Stylus](http://stylus-lang.com/)
+ - [Ramda](https://ramdajs.com)
+ - [Jest](https://jestjs.io)
+ - [Enzyme](https://airbnb.io/enzyme/)
+ - [StandardJS](https://standardjs.com/)
+ - Html5
+ - Css3
