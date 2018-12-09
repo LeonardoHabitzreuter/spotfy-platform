@@ -57,12 +57,12 @@ export default class Layout extends Component {
                 </p>
               </Breadcrumb.Item>
             }</Breadcrumb>
-            <div className='bg-white p-4' style={{ minHeight: '85vh' }}>
+            <div className='bg-light p-4' style={{ minHeight: '85vh' }}>
               {this.props.children}
             </div>
           </Content>
           <Footer className='text-center'>
-            Spotfy platform! ©2018 Creted by Leonardo Habitzreuter
+            Spotfy platform - ©2018 Creted by Leonardo Habitzreuter
           </Footer>
         </AntLayout>
       </AntLayout>
