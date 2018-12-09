@@ -65,7 +65,9 @@ module.exports = {
 
   resolve: {
     alias: {
-      components: join(paths.src, 'components')
+      components: join(paths.src, 'components'),
+      storage: join(paths.src, 'storage'),
+      api: join(paths.src, 'api')
     }
   }
 }

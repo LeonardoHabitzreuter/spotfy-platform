@@ -45,6 +45,7 @@ npm run build
  - [Ant design](https://ant.design/)
  - [Fontawesome](https://fontawesome.com)
  - [Stylus](http://stylus-lang.com/)
+ - [Axios](https://github.com/axios/axios)
  - [Ramda](https://ramdajs.com)
  - [Jest](https://jestjs.io)
  - [Enzyme](https://airbnb.io/enzyme/)
