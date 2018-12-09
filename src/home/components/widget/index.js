@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-export const Widget = ({ title, text, children, className, onClick }) => (
-  <article className={classNames('jumbotron', 'jumbotron-fluid', 'px-2', className)}>
+const reloadPage = key => {
+  window.location.href = key
+}
+
+export const Widget = ({ id, title, text, children, className }) => (
+  <article className={classNames('jumbotron', 'jumbotron-fluid', 'px-2', className)} onClick={() => reloadPage(id)}>
     {children}
     <h1 className='display-4'>{title}</h1>
     <p className='lead'>{text}</p>
@@ -13,8 +17,7 @@ export const Widget = ({ title, text, children, className, onClick }) => (
 Widget.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string,
-  onClick: PropTypes.func
+  text: PropTypes.string
 }
 
 export default Widget

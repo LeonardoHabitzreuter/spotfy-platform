@@ -67,7 +67,8 @@ module.exports = {
     alias: {
       components: join(paths.src, 'components'),
       storage: join(paths.src, 'storage'),
-      api: join(paths.src, 'api')
+      api: join(paths.src, 'api'),
+      actions: join(paths.src, 'actions')
     }
   }
 }
