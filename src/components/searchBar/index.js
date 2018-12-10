@@ -20,15 +20,20 @@ class SearchBar extends PureComponent {
     this.setState({ value })
   }
 
+  onClick () {
+    this.props.onSearch(this.state.value)
+  }
+
   render () {
     return (
       <div className={classNames('input-group', this.props.className)}>
         <div className='input-group-prepend'>
           <span className='input-group-text'>
-            <Icon className='fas fa-search' />
+            <Icon id='icon' className='fas fa-search' onClick={() => this.onClick()} />
           </span>
         </div>
         <input
+          id='input'
           onKeyUp={e => this.keyHandler(e.key)}
           className={classNames('form-control', styles.searchInput)}
           type='text'
@@ -43,7 +48,6 @@ class SearchBar extends PureComponent {
 
 SearchBar.propTypes = {
   placeholder: PropTypes.string,
-  action: PropTypes.string,
   className: PropTypes.string,
   onSearch: PropTypes.func
 }

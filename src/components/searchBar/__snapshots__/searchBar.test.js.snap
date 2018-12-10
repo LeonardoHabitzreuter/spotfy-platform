@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component should render properly 1`] = `
+<div
+  className="input-group"
+>
+  <div
+    className="input-group-prepend"
+  >
+    <span
+      className="input-group-text"
+    >
+      <Icon
+        className="fas fa-search"
+        id="icon"
+        onClick={[Function]}
+      />
+    </span>
+  </div>
+  <input
+    className="form-control searchInput"
+    id="input"
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    type="text"
+  />
+</div>
+`;

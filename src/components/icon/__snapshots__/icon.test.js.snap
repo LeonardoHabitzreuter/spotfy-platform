@@ -3,5 +3,6 @@
 exports[`Icon component should render properly 1`] = `
 <i
   className="some-class"
+  onClick={[Function]}
 />
 `;

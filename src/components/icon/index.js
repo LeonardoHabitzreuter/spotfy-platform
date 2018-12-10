@@ -8,4 +8,8 @@ Icon.propTypes = {
   onClick: PropTypes.func
 }
 
+Icon.defaultProps = {
+  onClick: () => {}
+}
+
 export default Icon

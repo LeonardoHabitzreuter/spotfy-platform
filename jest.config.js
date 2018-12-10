@@ -7,6 +7,8 @@ module.exports = {
     'html'
   ],
   moduleNameMapper: {
-    '\\.(css|less|styl)$': 'identity-obj-proxy'
+    '\\.(css|less|styl)$': 'identity-obj-proxy',
+    '^layout(.*)$': '<rootDir>/src/layout$1',
+    '^components(.*)$': '<rootDir>/src/components$1'
   }
 }
