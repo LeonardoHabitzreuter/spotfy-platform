@@ -13,21 +13,9 @@ const App = () => (
           <Home {...props} />
         </Layout>
       )} />
-      <Route path='/artists' render={props => (
-        <PrivateRoute>
-          <Artists {...props} />
-        </PrivateRoute>
-      )} />
-      <Route path='/albums' render={props => (
-        <PrivateRoute>
-          <Albums {...props} />
-        </PrivateRoute>
-      )} />
-      <Route path='/tracks' render={props => (
-        <PrivateRoute>
-          <Tracks {...props} />
-        </PrivateRoute>
-      )} />
+      <PrivateRoute path='/artists' component={Artists} />
+      <PrivateRoute path='/albums' component={Albums} />
+      <PrivateRoute path='/tracks' component={Tracks} />
     </Switch>
   </BrowserRouter>
 )
