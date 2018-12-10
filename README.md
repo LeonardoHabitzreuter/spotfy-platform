@@ -20,6 +20,8 @@ npm install
 npm start
 ```
 
+The app'll be available at **http://localhost:3003**
+
 ## We use the standard styleguide, for code checking run the following code below
 
 ```

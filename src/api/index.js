@@ -4,7 +4,7 @@ import qs from 'qs'
 import { get as getFromLocalStorage } from 'storage'
 
 const BASE_API_URL = 'https://api.spotify.com/v1'
-const TOKEN = 'TOKEN'
+const TOKEN = 'AUTH_TOKEN'
 
 const createAxiosInstance = () => (
   Axios.create({
