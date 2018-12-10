@@ -1,4 +1,4 @@
 export default {
-  ARTISTS: 'artists',
+  SEARCH: 'search',
   AUTHORIZE: 'https://accounts.spotify.com/authorize'
 }

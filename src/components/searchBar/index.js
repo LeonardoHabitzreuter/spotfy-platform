@@ -29,7 +29,7 @@ class SearchBar extends PureComponent {
       <div className={classNames('input-group', this.props.className)}>
         <div className='input-group-prepend'>
           <span className='input-group-text'>
-            <Icon id='icon' className='fas fa-search' onClick={() => this.onClick()} />
+            <Icon id='icon' className={classNames('fas fa-search', styles.clickable)} onClick={() => this.onClick()} />
           </span>
         </div>
         <input

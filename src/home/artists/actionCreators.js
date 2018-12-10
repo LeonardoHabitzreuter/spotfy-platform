@@ -3,5 +3,5 @@ import api, { urls } from 'api'
 
 export const searchArtists = param => ({
   type: SEARCH_ARTISTS,
-  payload: api.get(urls.ARTISTS)
+  payload: api.get(urls.SEARCH, { type: 'artist', q: param })
 })
