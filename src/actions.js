@@ -1,2 +1,2 @@
-export const SEARCH = 'SEARCH'
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER'
 export const SEARCH_ARTISTS = 'SEARCH_ARTISTS'
