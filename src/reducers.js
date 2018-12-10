@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
-import { homeReducer } from './home'
+import { artistsReducers } from './home'
+import authReducers from './auth'
 
 const rootReducer = combineReducers({
-  home: homeReducer
+  artists: artistsReducers,
+  auth: authReducers
 })
 
 export default rootReducer

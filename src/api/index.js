@@ -1,13 +1,10 @@
 import Axios from 'axios'
 import qs from 'qs'
 
-import { store as saveOnLocalStorage, get as getFromLocalStorage } from 'storage'
+import { get as getFromLocalStorage } from 'storage'
 
 const BASE_API_URL = 'https://api.spotify.com/v1'
 const TOKEN = 'TOKEN'
-const AUTH_URL = 'https://accounts.spotify.com/api/token'
-const CLIENT_ID = '51168e77f213473e94af389e3e281f9e'
-const CLIENT_SECRET = '2006365f7bc44754a77b6df0bf16bd62'
 
 const createAxiosInstance = () => (
   Axios.create({
@@ -21,7 +18,7 @@ const axiosBeforeRequest = instance => {
   instance.interceptors.request.use(async config => {
     config.headers = config.headers || {}
 
-    const accessToken = await getFromLocalStorage(TOKEN) || await authenticate()
+    const accessToken = await getFromLocalStorage(TOKEN)
 
     config.headers.common['Authorization'] = `Bearer ${accessToken}`
 
@@ -30,27 +27,6 @@ const axiosBeforeRequest = instance => {
     return Promise.reject(error)
   })
 }
-
-const authenticate = () => (
-  Axios
-    .post(
-      AUTH_URL,
-      undefined,
-      {
-        params: { grant_type: 'client_credentials' },
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': `Basic ${getClientData()}`
-        }
-      }
-    )
-    .then(response => {
-      saveOnLocalStorage(TOKEN, response.data.access_token)
-      return response
-    })
-)
-
-const getClientData = () => Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 
 const api = () => {
   const axiosInstance = createAxiosInstance()
@@ -69,4 +45,5 @@ const api = () => {
   }
 }
 
+export urls from './urls'
 export default api()

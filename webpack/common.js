@@ -68,7 +68,8 @@ module.exports = {
       components: join(paths.src, 'components'),
       storage: join(paths.src, 'storage'),
       api: join(paths.src, 'api'),
-      actions: join(paths.src, 'actions')
+      actions: join(paths.src, 'actions'),
+      layout: join(paths.src, 'layout')
     }
   }
 }

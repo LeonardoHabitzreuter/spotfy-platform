@@ -1,8 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Layout from './layout'
+import Layout from 'layout'
 import Home, { Artists, Albums, Tracks } from './home'
+import { PrivateRoute } from './auth'
 
 const App = () => (
   <BrowserRouter>
@@ -13,19 +14,19 @@ const App = () => (
         </Layout>
       )} />
       <Route path='/artists' render={props => (
-        <Layout>
+        <PrivateRoute>
           <Artists {...props} />
-        </Layout>
+        </PrivateRoute>
       )} />
       <Route path='/albums' render={props => (
-        <Layout>
+        <PrivateRoute>
           <Albums {...props} />
-        </Layout>
+        </PrivateRoute>
       )} />
       <Route path='/tracks' render={props => (
-        <Layout>
+        <PrivateRoute>
           <Tracks {...props} />
-        </Layout>
+        </PrivateRoute>
       )} />
     </Switch>
   </BrowserRouter>
