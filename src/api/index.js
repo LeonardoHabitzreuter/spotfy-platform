@@ -1,10 +1,12 @@
 import Axios from 'axios'
 import qs from 'qs'
+import { pipe, when, pathEq } from 'ramda'
 
-import { get as getFromLocalStorage } from 'storage'
+import { get as getFromLocalStorage, store as storeOnLocalStorage } from 'storage'
 
 const BASE_API_URL = 'https://api.spotify.com/v1'
 const TOKEN = 'AUTH_TOKEN'
+const TOKEN_EXPIRED_ERROR = 401
 
 const createAxiosInstance = () => (
   Axios.create({
@@ -14,24 +16,41 @@ const createAxiosInstance = () => (
   })
 )
 
-const axiosBeforeRequest = instance => {
-  instance.interceptors.request.use(async config => {
-    config.headers = config.headers || {}
+const handleError = error => pipe(
+  when(
+    pathEq(['response', 'status'], TOKEN_EXPIRED_ERROR),
+    pipe(
+      () => storeOnLocalStorage(TOKEN, null),
+      () => window.location.reload()
+    )
+  ),
+  Promise.reject
+)(error)
 
-    const accessToken = await getFromLocalStorage(TOKEN)
+const axiosInterceptors = instance => {
+  instance.interceptors.request.use(
+    async config => {
+      config.headers = config.headers || {}
 
-    config.headers.common['Authorization'] = `Bearer ${accessToken}`
+      const accessToken = await getFromLocalStorage(TOKEN)
 
-    return config
-  }, (error) => {
-    return Promise.reject(error)
-  })
+      config.headers.common['Authorization'] = `Bearer ${accessToken}`
+
+      return config
+    },
+    error => Promise.reject(error)
+  )
+
+  instance.interceptors.response.use(
+    response => response,
+    handleError
+  )
 }
 
 const api = () => {
   const axiosInstance = createAxiosInstance()
 
-  axiosBeforeRequest(axiosInstance)
+  axiosInterceptors(axiosInstance)
 
   return {
     get: (url, params) => {
