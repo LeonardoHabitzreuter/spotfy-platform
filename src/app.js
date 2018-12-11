@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Layout from 'layout'
 import Home, { Artists, Albums, Tracks } from './home'
 import { PrivateRoute } from './auth'
+import './styles.styl'
 
 const App = () => (
   <BrowserRouter>
