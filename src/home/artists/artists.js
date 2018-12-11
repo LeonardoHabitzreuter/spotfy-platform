@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { SearchBar } from 'components'
+import { SearchBar, DataView } from 'components'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -12,10 +12,8 @@ export class Artists extends PureComponent {
         <header>
           <h1>Artists</h1>
           <SearchBar placeholder='search for an artist' onSearch={param => this.props.searchArtists(param)} className='col-md-4 pl-0' />
-          <ul>
-            {this.props.artists.map(artist => <li key={artist.id}>{artist.name}</li>)}
-          </ul>
         </header>
+        <DataView items={this.props.artists} className='mt-3' />
       </main>
     )
   }
