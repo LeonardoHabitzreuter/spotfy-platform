@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataViewItem component should render properly 1`] = `
+<Fragment>
+  <li
+    className="list-group-item"
+    key="1"
+  >
+    <div>
+      <h3 />
+      <Image />
+    </div>
+  </li>
+</Fragment>
+`;

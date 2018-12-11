@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataViewList component should render properly 1`] = `
+<ul
+  className="list-group"
+>
+  <label>
+    Test
+  </label>
+</ul>
+`;

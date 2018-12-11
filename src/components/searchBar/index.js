@@ -27,12 +27,13 @@ class SearchBar extends PureComponent {
   render () {
     return (
       <div className={classNames('input-group', this.props.className)}>
-        <div className='input-group-prepend'>
+        <div className={classNames('input-group-prepend', styles.clickable)}>
           <span className='input-group-text'>
-            <Icon id='icon' className={classNames('fas fa-search', styles.clickable)} onClick={() => this.onClick()} />
+            <Icon id='icon' className='fas fa-search' onClick={() => this.onClick()} />
           </span>
         </div>
         <input
+          autofocus
           id='input'
           onKeyUp={e => this.keyHandler(e.key)}
           className={classNames('form-control', styles.searchInput)}
