@@ -33,7 +33,7 @@ class SearchBar extends PureComponent {
           </span>
         </div>
         <input
-          autofocus
+          autoFocus
           id='input'
           onKeyUp={e => this.keyHandler(e.key)}
           className={classNames('form-control', styles.searchInput)}
