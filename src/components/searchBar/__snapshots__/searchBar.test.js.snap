@@ -18,7 +18,7 @@ exports[`SearchBar component should render properly 1`] = `
     </span>
   </div>
   <input
-    autofocus={true}
+    autoFocus={true}
     className="form-control searchInput"
     id="input"
     onChange={[Function]}
