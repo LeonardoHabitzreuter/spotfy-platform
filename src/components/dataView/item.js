@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
@@ -10,17 +10,17 @@ const Image = ({ imageSrc }) => imageSrc
 
 const DataViewItem = ({ name, imageSrc, children, className }) => {
   return (
-    <Fragment>
-      <li className={classNames('list-group-item', className)}>
-        <div>
-          <h3>
-            {name}
-          </h3>
+    <li className={classNames('list-group-item', className)}>
+      <h3 className='text-center'>
+        {name}
+      </h3>
+      <div className='d-sm-flex'>
+        <div className='col-12 col-sm-6'>
           <Image imageSrc={imageSrc} />
         </div>
         {children}
-      </li>
-    </Fragment>
+      </div>
+    </li>
   )
 }
 
