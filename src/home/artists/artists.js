@@ -7,7 +7,7 @@ import { searchArtists } from './actionCreators'
 import List from './list'
 
 export const Artists = ({ artists, loading, searchArtists }) => (
-  <main>
+  <main className='pl-3'>
     <header>
       <h1>Artists</h1>
       <SearchBar placeholder='search for an artist' onSearch={param => searchArtists(param)} className='col-md-4 pl-0' />

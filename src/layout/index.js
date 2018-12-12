@@ -57,7 +57,7 @@ export default class Layout extends Component {
                 </p>
               </Breadcrumb.Item>
             }</Breadcrumb>
-            <div className='bg-light p-4' style={{ minHeight: '85vh' }}>
+            <div className='bg-light pt-4' style={{ minHeight: '85vh' }}>
               {this.props.children}
             </div>
           </Content>
