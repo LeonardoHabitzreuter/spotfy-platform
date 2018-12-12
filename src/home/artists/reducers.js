@@ -1,11 +1,20 @@
-import { SEARCH_ARTISTS } from 'actions'
+import { pipe } from 'ramda'
 
-const INITIAL_STATE = { data: [] }
+import { SEARCH_ARTISTS, TOGGLE_ARTISTS_LOADING } from 'actions'
 
-const artistsReducers = (state = INITIAL_STATE, action) => (
-  action.type === SEARCH_ARTISTS
-    ? { ...state, data: action.payload.data.artists.items }
-    : state
-)
+const INITIAL_STATE = { data: [], loading: false }
+
+const search = next => (state, action) => action.type === SEARCH_ARTISTS
+  ? { ...state, data: action.payload.data.artists.items, loading: false }
+  : next(state, action)
+
+const toggleLoading = next => (state, action) => action.type === TOGGLE_ARTISTS_LOADING
+  ? { ...state, loading: !state.loading }
+  : next(state, action)
+
+const artistsReducers = pipe(
+  search,
+  toggleLoading
+)(state => state || INITIAL_STATE)
 
 export default artistsReducers
