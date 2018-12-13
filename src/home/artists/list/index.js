@@ -16,7 +16,7 @@ const Artist = ({ name, images, genres, popularity }) => {
 
   return (
     <DataView.Item className='my-3' name={name} imageSrc={imageSrc}>
-      <div className={classNames('bg-light p-5', styles.content)}>
+      <div className={classNames('bg-light p-3 ml-lg-3', styles.content)}>
         <label>{genres}</label>
         <label>{popularity}</label>
       </div>

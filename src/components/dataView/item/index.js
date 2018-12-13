@@ -6,16 +6,16 @@ import { Icon } from 'components'
 import styles from './styles.styl'
 
 const Image = ({ imageSrc }) => imageSrc
-  ? <img className={classNames('mr-xl-3 mb-3', styles.toggleVisibility)} src={imageSrc} alt={imageSrc} />
-  : <Icon className='far fa-file-image fa-10x' />
+  ? <img className={classNames('mb-3', styles.toggleVisibility)} src={imageSrc} alt={imageSrc} />
+  : <Icon className={classNames('far fa-file-image fa-10x', styles.toggleVisibility)} />
 
 const DataViewItem = ({ name, imageSrc, children, className }) => {
   return (
     <li className={classNames('list-group-item', className)}>
-      <h3 className='text-center'>
+      <h3>
         {name}
       </h3>
-      <div className='d-xs-flex text-center'>
+      <div className='d-xs-flex text-sm-center text-xl-left'>
         <Image imageSrc={imageSrc} />
         {children}
       </div>
