@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataViewItem component should render properly 1`] = `
-<Fragment>
-  <li
-    className="list-group-item"
+<li
+  className="list-group-item"
+>
+  <h3 />
+  <div
+    className="d-xs-flex text-sm-center text-xl-left"
   >
-    <div>
-      <h3 />
-      <Image />
-    </div>
-  </li>
-</Fragment>
+    <Image />
+  </div>
+</li>
 `;

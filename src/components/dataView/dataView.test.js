@@ -15,7 +15,7 @@ describe('DataViewList component', () => {
     expect(wrapper.exists('label')).toBeTruthy()
   })
 
-  test('should contains a reference for the item component', () => {
+  test('should contains a reference to the item component', () => {
     expect(DataViewList.Item).not.toBeUndefined()
   })
 })
