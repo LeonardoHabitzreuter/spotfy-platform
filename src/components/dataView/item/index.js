@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import { Icon } from 'components'
+import styles from './styles.styl'
 
 const Image = ({ imageSrc }) => imageSrc
-  ? <img src={imageSrc} alt={imageSrc} />
+  ? <img className={classNames('mr-xl-3 mb-3', styles.toggleVisibility)} src={imageSrc} alt={imageSrc} />
   : <Icon className='far fa-file-image fa-10x' />
 
 const DataViewItem = ({ name, imageSrc, children, className }) => {
@@ -14,10 +15,8 @@ const DataViewItem = ({ name, imageSrc, children, className }) => {
       <h3 className='text-center'>
         {name}
       </h3>
-      <div className='d-sm-flex'>
-        <div className='col-12 col-sm-6'>
-          <Image imageSrc={imageSrc} />
-        </div>
+      <div className='d-xs-flex text-center'>
+        <Image imageSrc={imageSrc} />
         {children}
       </div>
     </li>
