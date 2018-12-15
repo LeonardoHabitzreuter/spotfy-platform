@@ -1,0 +1,14 @@
+.wrapper
+  opacity 1
+  cursor pointer
+  &:hover
+    opacity 0.5
+
+.overlayElement
+  opacity 0
+  cursor pointer
+  &:hover
+    opacity 1.0
+
+.visibilityToggle:hover + .overlayElement
+  opacity 1
