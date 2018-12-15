@@ -20,7 +20,7 @@ const Artist = ({ name, images, genres, popularity }) => {
         <h5>Popularity:</h5>
         <Rating number={popularity} className={styles.star} />
         <h5 className='mt-5'>Genres:</h5>
-        <label>{genres}</label>
+        <label>{genres.join(', ') || 'no genres specified'}</label>
       </div>
     </DataView.Item>
   )

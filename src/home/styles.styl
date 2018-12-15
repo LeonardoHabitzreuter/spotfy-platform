@@ -1,32 +1,29 @@
 @media only screen and (min-width: 1050px)
   .widgets
-    display: flex
-    justify-content: space-around
+    display flex
+    justify-content space-around
 
 .widget
-  cursor: pointer
-  transition: all 0.5s
+  cursor pointer
+  transition all 0.5s
 
 .widget:hover
-  transform: scale(1.2)
+  transform scale(1.2)
 
 .greenWidget
   @extend .widget
   background-image: linear-gradient(#045a13, #2ca567, #a5efbf)
-
-.greenWidget:hover
-  @extend .widget:hover
+  &:hover
+    @extend .widget:hover
 
 .blueWidget
   @extend .widget
   background-image: linear-gradient(#426284, #15afaf, #74c2da)
-
-.blueWidget:hover
-  @extend .widget:hover
+  &:hover
+    @extend .widget:hover
 
 .orangeWidget
   @extend .widget
   background-image: linear-gradient(#714f0a, #c38e23, #f7a271)
-
-.orangeWidget:hover
-  @extend .widget:hover
+  &:hover
+    @extend .widget:hover
