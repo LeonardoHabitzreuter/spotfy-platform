@@ -2,7 +2,7 @@ import React from 'react'
 import { pipe, defaultTo, head, prop } from 'ramda'
 import classNames from 'classnames'
 
-import { DataView } from 'components'
+import { DataView, Rating } from 'components'
 import styles from './styles.styl'
 
 const getImageUrl = pipe(
@@ -16,9 +16,11 @@ const Artist = ({ name, images, genres, popularity }) => {
 
   return (
     <DataView.Item className='my-3' name={name} imageSrc={imageSrc}>
-      <div className={classNames('bg-light p-3 ml-lg-3', styles.content)}>
+      <div className={classNames('bg-light d-inline-block p-3 ml-lg-3', styles.content)}>
+        <h5>Popularity:</h5>
+        <Rating number={popularity} className={styles.star} />
+        <h5 className='mt-5'>Genres:</h5>
         <label>{genres}</label>
-        <label>{popularity}</label>
       </div>
     </DataView.Item>
   )
