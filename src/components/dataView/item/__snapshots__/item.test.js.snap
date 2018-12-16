@@ -7,8 +7,6 @@ exports[`DataViewItem component should render properly 1`] = `
   <h3 />
   <div
     className="d-xs-flex text-sm-center text-xl-left"
-  >
-    <Image />
-  </div>
+  />
 </li>
 `;
