@@ -31,7 +31,14 @@ grey = #a6a6a6
   .toggleVisibility
     display: none
 
-.heart
+.heartOverlay
   @extend .toggleVisibility
   bottom 50%
   right 50%
+
+.actionHeart
+  cursor pointer
+  transition all 0.5s
+
+.actionHeart:hover
+  transform scale(1.2)

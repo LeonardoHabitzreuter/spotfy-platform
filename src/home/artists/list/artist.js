@@ -1,34 +1,78 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import classNames from 'classnames'
 
+import { get, store } from 'storage'
 import { DataView, Rating, Icon, overlayOnHover } from 'components'
 import styles from './styles.styl'
 
-const Image = imageSrc => props => <img className={classNames('mb-3', styles.toggleVisibility, props.className)} src={imageSrc} alt={imageSrc} />
+const FAVORITE_ARTISTS_KEY = 'FAVORITE_ARTISTS'
 
-const ImageOrIcon = ({ imageSrc }) => {
+const Heart = ({ className, fullHeart, onClick }) => <Icon
+  className={classNames(fullHeart ? 'fas' : 'far', 'fa-heart text-danger', className)}
+  onClick={onClick} />
+
+const ImageOrIcon = ({ imageSrc, ...props }) => {
   if (!imageSrc) {
     return <Icon className={classNames('far fa-file-image fa-10x', styles.toggleVisibility)} />
   }
 
-  const OverlayImage = overlayOnHover(Image(imageSrc))
+  const Image = props => <img className={classNames('mb-3', styles.toggleVisibility, props.className)} src={imageSrc} alt={imageSrc} />
+  const OverlayImage = overlayOnHover(Image)
   return (
     <OverlayImage>
-      <Icon className={classNames('far fa-heart fa-10x text-danger', styles.heart)} />
+      <Heart className={classNames('fa-10x', styles.heartOverlay)} {...props} />
     </OverlayImage>
   )
 }
 
-const Artist = ({ name, imageSrc, genres, popularity }) => (
-  <DataView.Item className='my-3' name={name} imageSrc={imageSrc}>
-    <ImageOrIcon imageSrc={imageSrc} />
-    <div className={classNames('bg-light d-inline-block p-3 ml-lg-3', styles.content)}>
-      <h5>Popularity:</h5>
-      <Rating number={popularity} className={styles.star} />
-      <h5 className='mt-5'>Genres:</h5>
-      <label>{genres.join(', ') || 'no genres specified'}</label>
-    </div>
-  </DataView.Item>
-)
+class Artist extends PureComponent {
+  state = {
+    favoriteArtists: []
+  }
+
+  constructor (props) {
+    super(props)
+    this.switchArtistIntoFavoritesList = this.switchArtistIntoFavoritesList.bind(this)
+  }
+
+  componentDidMount () {
+    get(FAVORITE_ARTISTS_KEY).then(favoriteArtists => {
+      if (favoriteArtists) this.setState({ favoriteArtists })
+    })
+  }
+
+  switchArtistIntoFavoritesList () {
+    const updatedState = this.artistIsFavorite()
+      ? this.state.favoriteArtists.filter(id => id !== this.props.id)
+      : [...this.state.favoriteArtists, this.props.id]
+
+    store(FAVORITE_ARTISTS_KEY, updatedState)
+      .then(() => this.setState({ favoriteArtists: updatedState }))
+  }
+
+  artistIsFavorite () {
+    return this.state.favoriteArtists.includes(this.props.id)
+  }
+
+  render () {
+    return (
+      <DataView.Item className='my-3' name={this.props.name}>
+        <ImageOrIcon imageSrc={this.props.imageSrc} onClick={this.switchArtistIntoFavoritesList} fullHeart={this.artistIsFavorite()} />
+        <div className={classNames('bg-light d-inline-block p-3 ml-lg-3', styles.content)}>
+          <h5>Popularity:</h5>
+          <Rating number={this.props.popularity} className={styles.star} />
+          <h5 className='mt-4'>Genres:</h5>
+          <label>{this.props.genres.join(', ') || 'no genres specified'}</label>
+          <h5 className='mt-4'>Actions:</h5>
+          <Heart
+            className={classNames('fa-5x', styles.actionHeart)}
+            onClick={this.switchArtistIntoFavoritesList}
+            fullHeart={this.artistIsFavorite()}
+          />
+        </div>
+      </DataView.Item>
+    )
+  }
+}
 
 export default Artist
