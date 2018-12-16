@@ -3,20 +3,17 @@ import { shallow } from 'enzyme'
 import Widget from './index'
 
 describe('Widget component', () => {
-  const wrapper = shallow(
+  const componentWrappedByBrowserLocation = shallow(
     <Widget title='titleLabel' text='textLabel' className='testClass'>
       <label>Test</label>
     </Widget>
   )
+  const wrapper = componentWrappedByBrowserLocation.render()
 
   test('should render properly', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(componentWrappedByBrowserLocation).toMatchSnapshot()
   })
 
-  test('should render children', () => {
-    expect(wrapper.exists('label')).toBeTruthy()
-  })
-  
   test('should has the class passed through the props', () => {
     expect(wrapper.hasClass('testClass')).toBeTruthy()
   })
