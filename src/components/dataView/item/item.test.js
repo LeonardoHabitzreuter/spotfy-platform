@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import DataViewItem from './item'
-import Icon from '../icon'
+import DataViewItem from './index'
+import Icon from '../../icon'
 
 describe('DataViewItem component', () => {
   const wrapper = shallow(<DataViewItem id='1' />)

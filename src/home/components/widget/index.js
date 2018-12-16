@@ -9,8 +9,8 @@ const reloadPage = key => {
 export const Widget = ({ id, title, text, children, className }) => (
   <article className={classNames('jumbotron', 'jumbotron-fluid', className)} onClick={() => reloadPage(id)}>
     {children}
-    <h1 className='display-4'>{title}</h1>
-    <p className='lead'>{text}</p>
+    <h1 id='title' className='display-4'>{title}</h1>
+    <p id='text' className='lead'>{text}</p>
   </article>
 )
 
