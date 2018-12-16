@@ -65,6 +65,10 @@ A high order component is pretty the same as a high order funtion, but instead o
 
 Compound components fits well when you need to have control over the children of a component without losing its reusability. This repo contains an example of a compound component [here](https://github.com/LeonardoHabitzreuter/spotfy-platform/blob/master/src/components/dataView/index.js). In this specefic case we didn't limit the type of the component's children, but we could.
 
+### Render props
+
+Render props is a very common and useful React technique. [Here](https://github.com/LeonardoHabitzreuter/spotfy-platform/blob/master/src/components/browserLocation/index.js) you can see a simple example of using inside the project
+
 ### We care about the performance!
 
 [Here](https://github.com/LeonardoHabitzreuter/spotfy-platform/blob/master/src/home/artists/list/artist.js) you can see that the `switchArtistIntoFavoritesList` method call is bound to the Artist class right into the constructor method. Why? The React makes a shallow comparation between the functions in its lifecycle, so the component render method would be called every time the React checks if the function instance is the same, the problem is it's never the same, even when the function implementation has not changed. To understand better this behavior we strongly recommend you to read the React doc [here](https://reactjs.org/docs/render-props.html)
