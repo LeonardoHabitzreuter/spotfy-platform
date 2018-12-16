@@ -3,7 +3,8 @@ const { join } = require('path')
 const paths = {
   root: join(__dirname, '..'),
   src: join(__dirname, '..', 'src'),
-  dist: join(__dirname, '..', 'dist')
+  dist: join(__dirname, '..', 'dist'),
+  assets: join(__dirname, '..', 'assets')
 }
 
 module.exports = {
@@ -63,13 +64,29 @@ module.exports = {
     ]
   },
 
+  svgLoader: {
+    test: /\.svg$/,
+    use: [
+      {
+        loader: 'babel-loader'
+      },
+      {
+        loader: 'react-svg-loader',
+        options: {
+          jsx: true
+        }
+      }
+    ]
+  },
+
   resolve: {
     alias: {
       components: join(paths.src, 'components'),
       storage: join(paths.src, 'storage'),
       api: join(paths.src, 'api'),
       actions: join(paths.src, 'actions'),
-      layout: join(paths.src, 'layout')
+      layout: join(paths.src, 'layout'),
+      assets: paths.assets
     }
   }
 }

@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { get, store } from 'storage'
 import { DataView, Rating, Icon, overlayOnHover } from 'components'
 import styles from './styles.styl'
+import NoImage from 'assets/icon-no-image.svg'
 
 const FAVORITE_ARTISTS_KEY = 'FAVORITE_ARTISTS'
 
@@ -13,7 +14,7 @@ const Heart = ({ className, fullHeart, onClick }) => <Icon
 
 const ImageOrIcon = ({ imageSrc, ...props }) => {
   if (!imageSrc) {
-    return <Icon className={classNames('far fa-file-image fa-10x', styles.toggleVisibility)} />
+    return <NoImage />
   }
 
   const Image = props => <img className={classNames('mb-3', styles.toggleVisibility, props.className)} src={imageSrc} alt={imageSrc} />
