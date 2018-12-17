@@ -1,14 +1,23 @@
-@media only screen and (min-width: 1050px)
+@media only screen and (min-width: 996px)
   .widgets
     display flex
     justify-content space-around
 
+  .widget
+    flex 0 0 30%
+    max-width 30%
+
+@media only screen and (max-width: 995px)
+  .widget
+    margin-right 5%
+    margin-left 5%
+
 .widget
   cursor pointer
-  transition all 0.5s
+  transition all 0.3s
 
 .widget:hover
-  transform scale(1.2)
+  transform scale(1.1)
 
 .greenWidget
   @extend .widget

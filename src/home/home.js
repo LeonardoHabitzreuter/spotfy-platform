@@ -5,7 +5,7 @@ import Widget from './components/widget'
 import { Icon } from 'components'
 import styles from './styles.styl'
 
-const widgetsClasses = 'rounded text-center col-12 col-sm-12 col-md-3'
+const widgetsClasses = 'rounded text-center'
 const iconsClasses = 'fa-10x'
 
 const Home = () => (
